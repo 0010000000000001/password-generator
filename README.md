@@ -12,3 +12,6 @@ _I wrote the script out of personal need for personal use._
 _My program does not take up much workspace, it is small and handy._
 
 _It generates a complex password and saves it to a .txt file with a note of what time the file was created._
+
+### ...
+_I understand that the github site probably already has something similar, but at least I can always improve my script_
