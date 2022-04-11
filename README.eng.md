@@ -1,6 +1,6 @@
 ## Installation
 - _Use the command `git clone https://github.com/0010000000000001/password-generator.git` to download to the selected directory._
-- _The script requires libraries, use the command `pip install -U requirements.txt`_
+- _The script requires libraries, use the command `pip install -U -r requirements.txt`_
 - _To run the script, use the command `python passw.py`_
  
 _Or just download `.rar` from the [link](https://github.com/0010000000000001/password-generator/archive/refs/heads/main.zip)_
