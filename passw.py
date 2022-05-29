@@ -35,8 +35,6 @@ def main():
     random.shuffle(num)
 
     os.system('MODE CON COLS=48 LINES=10')
-    # print(f'\n | • {Fore.CYAN}github.com/0010000000000001 {Fore.RESET}|')
-    # length = input('\n Password length: ')
     elp = 1
     info = 1
     
