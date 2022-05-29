@@ -1,10 +1,13 @@
 ### It's great
 _for active Windows users:_
-
-
-![passw](https://user-images.githubusercontent.com/95626629/154863228-3e518bba-977c-4781-aa64-b1481760f0bb.gif)
-
 - [English readme](https://github.com/0010000000000001/password-generator/blob/main/README.eng.md) • [Deutsche readme](https://github.com/0010000000000001/password-generator/blob/main/README.de.md) • [Russian readme](https://github.com/0010000000000001/password-generator/blob/main/README.ru.md)
+
+#### [new] 2.0 version
+![passw](https://github.com/0010000000000001/password-generator/blob/main/logo/version2.0.gif?raw=true)
+
+
+#### 1.0 version
+![passw](https://user-images.githubusercontent.com/95626629/154863228-3e518bba-977c-4781-aa64-b1481760f0bb.gif)
 
 
 _I wrote the script out of personal need for personal use._
