@@ -20,7 +20,7 @@ def ask(question):
 
 
 def main():
-    #   PASSWD
+    #   PASSWD gen
     letters = 'qwertyuiopasdfghjklzxcvbnm'
     letters += letters.upper()
     symbol = '(!#$/:;<=>?@%*+&,-.~^_€`)'
@@ -30,14 +30,14 @@ def main():
     mix = list(letters)
     random.shuffle(mix)
 
-    #   PIN
+    #   PIN gen
     num = list(numbers)
     random.shuffle(num)
 
     os.system('MODE CON COLS=48 LINES=10')
     elp = 1
     info = 1
-    
+
     #   TIME
     now = datetime.datetime.now()
     hour = now.hour
@@ -54,6 +54,7 @@ def main():
     elif hour > 18 and hour < 23:
         print(' Good Night,', socket.gethostname())
 
+    #   PIN 
     while True:
         if info == 1:
             print(f'\n{Fore.CYAN} To close the program,\n you can always write: {Fore.RED}exit{Fore.RESET}')
@@ -115,7 +116,7 @@ def main():
                         main()
 
                     elif choice == 'n':
-                        print("\n The program will close after 6 seconds")
+                        print("\n The program will close..")
 
             elif pin == 'n':
                 elp += 1
@@ -127,6 +128,7 @@ def main():
         else:
             break
 
+    #   PASSWD
     new_password = ''
     for p in range(int(length)):
         new_password = new_password + random.choice(mix)
@@ -139,13 +141,13 @@ def main():
         pyperclip.copy(new_password)
         pyperclip.paste()
         print(f'{Fore.GREEN} Password saved to clipboard for quick use{Fore.RESET}')
-        use = input('\n Where to be used?: ')
+        use = input('\n Where to be used?:\n ')
 
         while len(use) > 47:
             print(f'{Fore.RED} Password description takes so much?{Fore.RESET}')
             sleep(1)
             os.system('cls')
-            use = input('\n Where to be used? (example social networks): ')
+            use = input('\n Where to be used? (example social networks):\n ')
 
         with open('my_pass.txt', 'a') as add_password:
 
