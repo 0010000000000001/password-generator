@@ -19,6 +19,18 @@ def ask(question):
     return response
 
 
+def loading():
+    print(' Loading.')
+    sleep(0.1)
+    os.system('cls')
+    print(' Loading..')
+    sleep(0.4)
+    os.system('cls')
+    print(' Loading...')
+    sleep(0.2)
+    os.system('cls')
+
+
 def main():
     #   PASSWD gen
     letters = 'qwertyuiopasdfghjklzxcvbnm'
@@ -34,7 +46,7 @@ def main():
     num = list(numbers)
     random.shuffle(num)
 
-    os.system('MODE CON COLS=48 LINES=10')
+    os.system('MODE CON COLS=49 LINES=10')
     elp = 1
     info = 1
 
@@ -42,22 +54,22 @@ def main():
     now = datetime.datetime.now()
     hour = now.hour
 
-    if hour > 0 and hour <= 6:
+    if hour >= 0 and not hour > 5:
+        print(' Good night,', socket.gethostname())
+
+    elif hour >= 6 and not hour > 11:
         print(' Good Morning,', socket.gethostname())
 
-    elif hour > 6 and hour <= 12:
+    elif hour >= 12 and not hour > 17:
         print(' Good afternoon,', socket.gethostname())
 
-    elif hour > 12 and hour <= 18:
+    elif hour >= 18 and not hour > 23:
         print(' Good Evening,', socket.gethostname())
 
-    elif hour > 18 and hour < 23:
-        print(' Good Night,', socket.gethostname())
-
-    #   PIN 
+    #   PIN
     while True:
         if info == 1:
-            print(f'\n{Fore.CYAN} To close the program,\n you can always write: {Fore.RED}exit{Fore.RESET}')
+            print(f'\n{Fore.CYAN} To close the program write: {Fore.RED}exit{Fore.RESET}')
         length = input('\n Password length: ')
         info += 1
 
@@ -74,6 +86,7 @@ def main():
             pin = ask('\n Probably you want to create a PIN-CODE? y/n: ')
 
             if pin == 'y':
+                os.system('cls')
                 print(f'{Fore.CYAN} After creating a PIN, you can also\n create a password or just close the program {Fore.RESET}')
                 pin = ''
                 for p in range(int(length)):
@@ -84,22 +97,18 @@ def main():
 
                 if choice == 'y':  # yes
 
-                    pyperclip.copy(pin)
-                    pyperclip.paste()
-                    print(f'{Fore.GREEN} PIN-code saved to clipboard for quick use{Fore.RESET}')
                     use = input('\n Description (example for which device?):\n ')
 
                     while len(use) > 47:
-                        print(f'{Fore.RED} PIN-code description takes so much?{Fore.RESET}')
-                        sleep(1)
-                        os.system('cls')
-                        use = input('\n Description (example for which device?):\n ')
+                        print(f'{Fore.RED} \n PIN-code description takes so much?{Fore.RESET}')
+                        use = input(' Description (example for which device?):\n ')
 
                     with open('my_pass.txt', 'a') as add_password:
 
                         today = datetime.datetime.today()
                         add_password.write(f'\nTIME: {today.strftime("%d-%m-%Y-%H.%M")}  -  PIN: {pin}  -  {use}')
-                        print(f'{Fore.GREEN} PIN-code added successfully, check{Fore.RESET} my_pass.txt')
+                        os.system('cls')
+                        print(f'{Fore.GREEN} \n PIN-code added successfully, check{Fore.RESET} my_pass.txt')
                         size = os.path.getsize('my_pass.txt')
 
                         if size == 0:
@@ -122,8 +131,8 @@ def main():
                 elp += 1
                 pass
 
-        elif int(length) > 20:
-            print(f'{Fore.RED} A very strong password is \n a maximum of 20 characters{Fore.RESET}')
+        elif int(length) > 25:
+            print(f'{Fore.RED} A very strong password is a maximum of 25 chr{Fore.RESET}')
 
         else:
             break
@@ -138,22 +147,36 @@ def main():
 
     if choice == 'y':  # yes
 
-        pyperclip.copy(new_password)
-        pyperclip.paste()
-        print(f'{Fore.GREEN} Password saved to clipboard for quick use{Fore.RESET}')
         use = input('\n Where to be used?:\n ')
 
         while len(use) > 47:
-            print(f'{Fore.RED} Password description takes so much?{Fore.RESET}')
-            sleep(1)
-            os.system('cls')
-            use = input('\n Where to be used? (example social networks):\n ')
+            print(f'{Fore.RED} \n Password description takes so much?{Fore.RESET}')
+            use = input(' Where to be used? (example social networks):\n ')
 
         with open('my_pass.txt', 'a') as add_password:
 
             today = datetime.datetime.today()
+            os.system('cls')
             add_password.write(f'\nTIME: {today.strftime("%d-%m-%Y-%H.%M")}  -  PASS: {new_password}  -  {use}')
-            print(f'{Fore.GREEN} Password added successfully, check{Fore.RESET} my_pass.txt')
+            print(f'{Fore.CYAN} \n There are buffer exchange interceptor programs'
+                  f'\n If you are confident in the security\n of your system then click: {Fore.RESET}Y'
+                  f'\n\n {Fore.CYAN}If you press{Fore.RESET} N {Fore.CYAN}the clipboard will be cleared{Fore.RESET}')
+            # clipboard
+            clipboard = ask(f'\n {Fore.RED}[BE CAREFUL] {Fore.RESET}Save password to clipboard? y/n: ')
+
+            if clipboard == 'y':
+                loading()
+                print(f'{Fore.GREEN} \n Password saved to clipboard for quick use{Fore.RESET}')
+                pyperclip.copy(new_password)
+                pyperclip.paste()
+
+            elif clipboard == 'n':
+                loading()
+                empty = ''
+                pyperclip.copy(empty)
+                pyperclip.paste()
+
+            print(f'{Fore.GREEN} \n Password added successfully, check{Fore.RESET} my_pass.txt')
             size = os.path.getsize('my_pass.txt')
 
             if size == 0:
@@ -175,4 +198,4 @@ def main():
 
 if __name__ == '__main__':
     main()
-    sleep(4)
+    sleep(6)
