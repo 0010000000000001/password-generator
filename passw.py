@@ -22,13 +22,13 @@ def ask(question):
 def loading():
     print(' Loading.')
     sleep(0.1)
-    os.system('cls')
+    os.system('cls||clear')
     print(' Loading..')
     sleep(0.4)
-    os.system('cls')
+    os.system('cls||clear')
     print(' Loading...')
     sleep(0.2)
-    os.system('cls')
+    os.system('cls||clear')
 
 
 def main():
@@ -55,16 +55,16 @@ def main():
     hour = now.hour
 
     if hour >= 0 and not hour > 5:
-        print(' Good night,', socket.gethostname())
+        print('\n Good night,', socket.gethostname())
 
     elif hour >= 6 and not hour > 11:
-        print(' Good Morning,', socket.gethostname())
+        print('\n Good Morning,', socket.gethostname())
 
     elif hour >= 12 and not hour > 17:
-        print(' Good afternoon,', socket.gethostname())
+        print('\n Good afternoon,', socket.gethostname())
 
     elif hour >= 18 and not hour > 23:
-        print(' Good Evening,', socket.gethostname())
+        print('\n Good Evening,', socket.gethostname())
 
     #   PIN
     while True:
@@ -86,7 +86,7 @@ def main():
             pin = ask('\n Probably you want to create a PIN-CODE? y/n: ')
 
             if pin == 'y':
-                os.system('cls')
+                os.system('cls||clear')
                 print(f'{Fore.CYAN} After creating a PIN, you can also\n create a password or just close the program {Fore.RESET}')
                 pin = ''
                 for p in range(int(length)):
@@ -107,7 +107,7 @@ def main():
 
                         today = datetime.datetime.today()
                         add_password.write(f'\nTIME: {today.strftime("%d-%m-%Y-%H.%M")}  -  PIN: {pin}  -  {use}')
-                        os.system('cls')
+                        os.system('cls||clear')
                         print(f'{Fore.GREEN} \n PIN-code added successfully, check{Fore.RESET} my_pass.txt')
                         size = os.path.getsize('my_pass.txt')
 
@@ -156,7 +156,7 @@ def main():
         with open('my_pass.txt', 'a') as add_password:
 
             today = datetime.datetime.today()
-            os.system('cls')
+            os.system('cls||clear')
             add_password.write(f'\nTIME: {today.strftime("%d-%m-%Y-%H.%M")}  -  PASS: {new_password}  -  {use}')
             print(f'{Fore.CYAN} \n There are buffer exchange interceptor programs'
                   f'\n If you are confident in the security\n of your system then click: {Fore.RESET}Y'
